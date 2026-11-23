@@ -29,7 +29,7 @@
 
 ## 许可
 
-源码 MIT；历法数据与提示词 CC BY-NC-SA 4.0（商用请联系，见 `LICENSE-DATA`）。
+MIT（含免责声明，见 DISCLAIMER.md）。
 
 ## 安装
 

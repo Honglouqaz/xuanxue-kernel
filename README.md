@@ -22,15 +22,6 @@
 `liuyao` 六爻纳甲 · `meihua` 梅花易数 · `yijing` 易经卦象 · `fengshui` 风水 · `huangli` 黄历择日 ·
 `xiaoliuren` 小六壬 · `xiangshu` 象数 · `xingming` 星命 · `modern` 现代占星 · `tizhi` 体质
 
-> [!IMPORTANT]
-> 本项目是**中国传统文化与术数算法的工程整理**，用于学习、研究与娱乐。
-> **不是医疗器械、不提供诊断，不构成医疗/投资/法律/婚姻或任何人生决策依据。** 详见 [DISCLAIMER.md](DISCLAIMER.md)。
-
-> [!NOTE]
-> **个人使用完全自由，不用问也不用署名。** 源码 MIT 可自由商用；
-> 但**历法数据表与解读提示词走 CC BY-NC-SA 4.0，商业用途需授权**（付费产品/SaaS/企业内系统/白标）。
-> 详见 [LICENSE-DATA](LICENSE-DATA)，授权请提 Issue 标题加 `[商业授权]`。
-
 **在线试：<https://honglouqaz.github.io/xuanxue-kernel/>**（零后端，纯前端跑）
 
 ![演示](docs/screenshot.png)
@@ -138,21 +129,10 @@ api/xuanxue_api.py 可选 Python 网关：统一 BirthInput 请求模型，本�
 
 如果你也在这套体系里写东西，欢迎把口径差异、历法修正、新的排盘算法提交回来。
 
-## 许可（代码与数据分层）
+## 免责
 
-| 对象 | 许可 | 商用 |
-|---|---|---|
-| 源代码（`kernel/engines`、`kernel/core`、`index.html`、`bin/`、`api/`） | **MIT** | ✅ 自由 |
-| 历法数据表 `kernel/data/calendar_data.js` | **CC BY-NC-SA 4.0** | ⚠️ 需授权 |
-| 解读提示词 `kernel/ai/prompts.js` | **CC BY-NC-SA 4.0** | ⚠️ 需授权 |
-| 古籍原文、干支/卦名等公有领域内容 | 公有领域 | ✅ 自由 |
-| 项目名「星枢」与图标 | 保留权利 | ⚠️ 需许可 |
+**这是术数算法的工程整理，不是算命服务，也不构成任何决策依据。** 详见 [DISCLAIMER.md](DISCLAIMER.md)。
 
-- 个人使用（自看、研究、教学、改了自己用）：**完全自由，不用问**
-- 商业用途（付费产品、SaaS、企业内部系统、白标、商业硬件预装）：先提 Issue，标题加 **`[商业授权]`**
-- 态度是开放的，多数情况会同意，通常只需要署名 + 一句来源说明
+## License
 
-为什么这样拆：MIT 本身允许商用，只在 README 写「商用请联系」是没有约束力的友好请求；
-要真正可执行，就得让核心资产（数据/规则）走非商业许可 —— **代码放开、数据收紧**。
-
-源码见 [LICENSE](LICENSE)，数据见 [LICENSE-DATA](LICENSE-DATA)，免责见 [DISCLAIMER.md](DISCLAIMER.md)。
+MIT

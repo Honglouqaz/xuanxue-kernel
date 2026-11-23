@@ -12,7 +12,7 @@
     "./ai/*": "./kernel/ai/*"
   },
   "bin": { "xuanxue": "bin/xuanxue.mjs" },
-  "files": ["index.html", "kernel/", "bin/", "api/", "docs/", "README.md", "LICENSE", "LICENSE-DATA", "DISCLAIMER.md"],
+  "files": ["index.html", "kernel/", "bin/", "api/", "docs/", "README.md", "LICENSE", "DISCLAIMER.md"],
   "engines": { "node": ">=18" },
   "scripts": {
     "test": "node test/smoke.mjs",
