@@ -22,6 +22,8 @@
 `liuyao` 六爻纳甲 · `meihua` 梅花易数 · `yijing` 易经卦象 · `fengshui` 风水 · `huangli` 黄历择日 ·
 `xiaoliuren` 小六壬 · `xiangshu` 象数 · `xingming` 星命 · `modern` 现代占星 · `tizhi` 体质
 
+**在线试：<https://honglouqaz.github.io/xuanxue-kernel/>**（零后端，纯前端跑）
+
 ![演示](docs/screenshot.png)
 
 ## 快速开始
