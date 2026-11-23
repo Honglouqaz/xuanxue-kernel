@@ -22,6 +22,15 @@
 `liuyao` 六爻纳甲 · `meihua` 梅花易数 · `yijing` 易经卦象 · `fengshui` 风水 · `huangli` 黄历择日 ·
 `xiaoliuren` 小六壬 · `xiangshu` 象数 · `xingming` 星命 · `modern` 现代占星 · `tizhi` 体质
 
+> [!IMPORTANT]
+> 本项目是**中国传统文化与术数算法的工程整理**，用于学习、研究与娱乐。
+> **不是医疗器械、不提供诊断，不构成医疗/投资/法律/婚姻或任何人生决策依据。** 详见 [DISCLAIMER.md](DISCLAIMER.md)。
+
+> [!NOTE]
+> **个人使用完全自由，不用问也不用署名。** 源码 MIT 可自由商用；
+> 但**历法数据表与解读提示词走 CC BY-NC-SA 4.0，商业用途需授权**（付费产品/SaaS/企业内系统/白标）。
+> 详见 [LICENSE-DATA](LICENSE-DATA)，授权请提 Issue 标题加 `[商业授权]`。
+
 **在线试：<https://honglouqaz.github.io/xuanxue-kernel/>**（零后端，纯前端跑）
 
 ![演示](docs/screenshot.png)
@@ -61,6 +70,30 @@ python xuanxue_api.py 8899         # http://localhost:8899/docs 有 OpenAPI 文�
 > ⚠️ Python 侧的 `/api/bazi` 等「本地直算」端点依赖**上游重型引擎**（见致谢），本仓不打包。
 > 没装上游时它们会返回 503 并告诉你缺什么；`/health`、`/systems`、静态前端不受影响。
 > 想要开箱即用，用**方式一**的前端内核（15 个体系全在前端，零依赖）。
+
+## 命令行（npx）
+
+```bash
+# 装成全局命令（或直接用 npx xuanxue）
+npm install -g .            # 在本仓目录执行；也可 npm install github:Honglouqaz/xuanxue-kernel
+
+xuanxue list                              # 15 个体系及其排盘函数
+xuanxue run bazi --y 1990 --mo 6 --d 15 --h 10 --mi 0 --gender M
+xuanxue run ziwei --y 1990 --mo 6 --d 15 --json
+xuanxue run all --y 1990 --mo 6 --d 15    # 15 个体系全跑
+xuanxue huangli --y 2026 --mo 11 --d 23   # 黄历/星宿
+```
+
+需要额外参数的体系（缺了会明确告诉你缺哪个，不会崩）：
+
+```bash
+xuanxue run xiaoliuren --lm 8 --ld 11 --hz 8     # 农历月/日/时支
+xuanxue run yijing --yao 101010                  # 六爻自下而上
+xuanxue run xiangshu --tags 额头饱满,眉浓
+xuanxue run xingming --xing 张 --ming 三
+xuanxue run fengshui --sit-shan 子               # 玄空飞星（按年）
+xuanxue run tizhi --answers '{"睡眠":"容易醒"}'
+```
 
 ## 架构
 
@@ -105,6 +138,21 @@ api/xuanxue_api.py 可选 Python 网关：统一 BirthInput 请求模型，本�
 
 如果你也在这套体系里写东西，欢迎把口径差异、历法修正、新的排盘算法提交回来。
 
-## License
+## 许可（代码与数据分层）
 
-MIT —— 见 [LICENSE](LICENSE)。
+| 对象 | 许可 | 商用 |
+|---|---|---|
+| 源代码（`kernel/engines`、`kernel/core`、`index.html`、`bin/`、`api/`） | **MIT** | ✅ 自由 |
+| 历法数据表 `kernel/data/calendar_data.js` | **CC BY-NC-SA 4.0** | ⚠️ 需授权 |
+| 解读提示词 `kernel/ai/prompts.js` | **CC BY-NC-SA 4.0** | ⚠️ 需授权 |
+| 古籍原文、干支/卦名等公有领域内容 | 公有领域 | ✅ 自由 |
+| 项目名「星枢」与图标 | 保留权利 | ⚠️ 需许可 |
+
+- 个人使用（自看、研究、教学、改了自己用）：**完全自由，不用问**
+- 商业用途（付费产品、SaaS、企业内部系统、白标、商业硬件预装）：先提 Issue，标题加 **`[商业授权]`**
+- 态度是开放的，多数情况会同意，通常只需要署名 + 一句来源说明
+
+为什么这样拆：MIT 本身允许商用，只在 README 写「商用请联系」是没有约束力的友好请求；
+要真正可执行，就得让核心资产（数据/规则）走非商业许可 —— **代码放开、数据收紧**。
+
+源码见 [LICENSE](LICENSE)，数据见 [LICENSE-DATA](LICENSE-DATA)，免责见 [DISCLAIMER.md](DISCLAIMER.md)。

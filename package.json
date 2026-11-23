@@ -1,0 +1,27 @@
+{
+  "name": "xuanxue-kernel",
+  "version": "1.0.0",
+  "description": "纯前端术数排盘引擎：15 个体系、零依赖 ES Module。排盘由确定性算法算，AI 只解读不参与起局。",
+  "type": "module",
+  "main": "kernel/ui/modules.js",
+  "exports": {
+    ".": "./kernel/ui/modules.js",
+    "./engines/*": "./kernel/engines/*",
+    "./core/*": "./kernel/core/*",
+    "./data/*": "./kernel/data/*",
+    "./ai/*": "./kernel/ai/*"
+  },
+  "bin": { "xuanxue": "bin/xuanxue.mjs" },
+  "files": ["index.html", "kernel/", "bin/", "api/", "docs/", "README.md", "LICENSE", "LICENSE-DATA", "DISCLAIMER.md"],
+  "engines": { "node": ">=18" },
+  "scripts": {
+    "test": "node test/smoke.mjs",
+    "serve": "node -e \"import('node:http').then(async h=>{const fs=await import('node:fs/promises'),p=await import('node:path');h.createServer(async(q,r)=>{let f=p.join(process.cwd(),decodeURIComponent(q.url.split('?')[0]));if(f.endsWith('/'))f+='index.html';try{const b=await fs.readFile(f);const t={'.html':'text/html; charset=utf-8','.js':'text/javascript; charset=utf-8','.css':'text/css','.json':'application/json','.png':'image/png','.jpg':'image/jpeg'};r.writeHead(200,{'Content-Type':t[p.extname(f)]||'application/octet-stream'});r.end(b)}catch{r.writeHead(404);r.end('404')}}).listen(8080,()=>console.log('http://localhost:8080'))})\""
+  },
+  "keywords": ["bazi", "ziwei", "qimen", "liuyao", "meihua", "taiyi", "liuren", "fengshui", "chinese-metaphysics", "divination", "lunar-calendar", "zero-dependency", "es-modules"],
+  "homepage": "https://honglouqaz.github.io/xuanxue-kernel/",
+  "repository": { "type": "git", "url": "git+https://github.com/Honglouqaz/xuanxue-kernel.git" },
+  "bugs": { "url": "https://github.com/Honglouqaz/xuanxue-kernel/issues" },
+  "license": "MIT",
+  "author": "Honglouqaz"
+}
