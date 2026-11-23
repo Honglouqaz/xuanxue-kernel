@@ -7,6 +7,9 @@ name: npm publish
 #   Repository: xuanxue-kernel
 #   Workflow filename: npm-publish.yml
 #   Environment: (留空)
+#   Allowed actions: 必须勾上 「Allow npm publish」（2026-09-03 之后创建的配置默认只允许 stage publish）
+# 注意：配置后 2 天内必须完成首次发布，否则配置过期要重建。
+# 官方要求：npm CLI ≥ 11.5.1、Node ≥ 22.14.0（下面已按此设置）
 # 绑定后，在 Actions 里手动 Run workflow（或推 v* tag）即可发布，并自动带 provenance 签名。
 on:
   workflow_dispatch:
@@ -25,14 +28,16 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22          # Trusted Publishing 要求 Node ≥ 22.14.0
           registry-url: https://registry.npmjs.org
 
       - name: 冒烟测试（26 项断言，不过就不发）
         run: node test/smoke.mjs
 
-      - name: 升级 npm（Trusted Publishing 需要较新版本）
-        run: npm install -g npm@latest
+      - name: 升级 npm（Trusted Publishing 要求 npm CLI ≥ 11.5.1）
+        run: |
+          npm install -g npm@latest
+          node -v && npm -v
 
       - name: 发布到 npm（带 provenance，无 token）
         run: npm publish --access public --provenance
