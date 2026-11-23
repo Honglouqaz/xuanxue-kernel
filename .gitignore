@@ -1,0 +1,18 @@
+# 依赖与构建产物（本项目本不需要，但别让它们混进来）
+node_modules/
+dist/
+build/
+__pycache__/
+*.pyc
+.venv/
+
+# 运行时数据，永不入库
+*.db
+*.db-wal
+*.db-shm
+*.log
+data_snapshot/
+config.local.json
+
+# 系统
+.DS_Store

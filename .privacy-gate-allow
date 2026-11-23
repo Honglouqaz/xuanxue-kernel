@@ -1,0 +1,5 @@
+{
+  "kernel/data/calendar_data.js": {
+    "长令牌": "1900-2100 年节气/农历表，值是压缩后的 base64 数字串，不是令牌。已被 test/smoke.mjs 验证可解出 24 节气。"
+  }
+}
